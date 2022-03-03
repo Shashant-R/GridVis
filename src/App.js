@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Grid from './components/Grid';
 import Button from './components/Button';
-//import { Button } from 'ui-neumorphism';
-//import 'ui-neumorphism/dist/index.css';
 const shortestpath = (source, destination, parent) => {
   let path = []
   let curr = parent[destination];
@@ -15,8 +13,8 @@ const shortestpath = (source, destination, parent) => {
   return path
 }
 const bfs = (walls, visited, visiting, parent) => {
-  const N = 20
-  const M = 20
+  const N = 12
+  const M = 12
   const dx = [0, 0, 1, -1, 1, 1, -1, -1];
   const dy = [1, -1, 0, 0, -1, 1, 1, -1];
   var q = [];
@@ -67,8 +65,8 @@ const bfs = (walls, visited, visiting, parent) => {
   return [visited, visiting, par]
 } //end of bfs
 const dfs=(walls, stack, visited, visiting, parent)=>{
-  const N = 20
-  const M = 20
+  const N = 12
+  const M = 12
   const dx = [0, 0, 1, -1, 1, 1, -1, -1];
   const dy = [1, -1, 0, 0, -1, 1, 1, -1];
   var par = parent
@@ -253,7 +251,7 @@ export default function App() {
         setCtr(ctr+1)
       }
     }, 0);
-  },[ctr])
+  },[ctr]);
   const buttonClick = (type) => {
     if(type==='source' && !disable_source)
     {
@@ -283,23 +281,25 @@ export default function App() {
   
 
   return (
-    <div onMouseUp={()=>mouseEnd('')}>
+    <div onMouseUp={()=>mouseEnd('')} style={{display: 'flex', justifyContent: 'space-around'}}>
       <Grid 
-      mouseStart={mouseStart}
-      mouseHover={mouseHover}
-      mouseEnd={mouseEnd}
-      walls={walls} 
-      visited={visited} 
-      visiting={visiting} 
-      source={source} 
-      destination={destination}
-      path = {path}
+        mouseStart={mouseStart}
+        mouseHover={mouseHover}
+        mouseEnd={mouseEnd}
+        walls={walls} 
+        visited={visited} 
+        visiting={visiting} 
+        source={source} 
+        destination={destination}
+        path = {path}
       />
-      <Button type='source' content='Select source cell' buttonClick={buttonClick} disable = {disable_source}/>
-      <Button type='destination' content='Select destination cell' buttonClick={buttonClick} disable = {disable_destination}/>
-      <Button type='start' content='Start' buttonClick={buttonClick} disable={disable_start}/>
-      <Button type='dfs' content='DFS' buttonClick={buttonClick} disable={!BFS}/>
-      <Button type='bfs' content='BFS' buttonClick={buttonClick} disable={BFS}/>
+      <div className='action-buttons' style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+        <Button type='source' content='Source cell' buttonClick={buttonClick} disable = {disable_source}/>
+        <Button type='destination' content='Destination cell' buttonClick={buttonClick} disable = {disable_destination}/>
+        <Button type='start' content='Start' buttonClick={buttonClick} disable={disable_start}/>
+        <Button type='dfs' content='DFS' buttonClick={buttonClick} disable={!BFS || start}/>
+        <Button type='bfs' content='BFS' buttonClick={buttonClick} disable={BFS || start}/>
+      </div>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import './App.css';
 import Grid from './components/Prob1Grid';
 import Button from './components/Button';
 const bfs = (walls, visited, visiting, rooms, room_ctr) => {
-  const N = 20
-  const M = 20
+  const N = 12
+  const M = 12
   const dx = [0, 0, 1, -1, 1, 1, -1, -1];
   const dy = [1, -1, 0, 0, -1, 1, 1, -1];
   var q = [];
@@ -101,9 +101,9 @@ export default function Copy() {
     if(disable_start && !visiting.length)
     {
       console.log(rooms)
-      for(let i=0;i<20;i++)
+      for(let i=0;i<12;i++)
       {
-        for(let j=0;j<20;j++)
+        for(let j=0;j<12;j++)
         {
           let pos = `${i} ${j}`;
           if(!visited.includes(pos) && !walls.includes(pos))

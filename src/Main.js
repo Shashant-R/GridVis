@@ -9,19 +9,23 @@ export default function Main() {
     return (
         <Router>
             <div>
-                <h1>GridVis</h1>
-                <h3 style={{textAlign: "center", color: "white"}}>Grid Problems Visualizer</h3>
-                <ul className='header'>
-                    <li>
-                        <Link to='/'>Labyrinth</Link>
-                    </li>
-                    <li>
-                        <Link to='/Prob1'>Counting rooms</Link>
-                    </li>
-                </ul>
+                <div  style={{display: 'flex'}}>
+                    <Link to='/'>
+                        <h1>GridVis</h1>
+                    </Link>
+                    <ul className='header'>
+                        <li>
+                            <Link to='/Labyrinth'>Labyrinth</Link>
+                        </li>
+                        <li>
+                            <Link to='/Prob1'>Counting rooms</Link>
+                        </li>
+                    </ul>
+                </div>
                 <div className='content'>
                     <Routes>
-                        <Route path='/' element={<App/>}/>
+                        <Route path='/' element={<></>}/>
+                        <Route path='/Labyrinth' element={<App/>}/>
                         <Route path='/Prob1' element={<Prob1/>}/>
                     </Routes>
                 </div>

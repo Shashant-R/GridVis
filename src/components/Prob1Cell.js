@@ -1,40 +1,43 @@
 import React from 'react';
-function hashCode(str) { // java String#hashCode
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-       hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    return (157)*hash;
-} 
-
-function intToRGB(i){
-    var c = (i & 0x00FFFFFF)
-        .toString(16)
-        .toUpperCase();
-
-    return "00000".substring(0, 6 - c.length) + c;
+import { IconButton } from 'ui-neumorphism';
+import 'ui-neumorphism/dist/index.css';
+import Icon from '@mdi/react';
+import { mdiWall, mdiCheckboxBlankOutline, mdiCheckboxIntermediate } from '@mdi/js';
+function getRandomColor(seed) {
+    return Math.floor((Math.abs(Math.sin(seed) * 16777215))).toString(16);
+}
+const icons = {
+    'cell wall': mdiWall,
+    'cell visited': mdiCheckboxBlankOutline,
+    'cell done': mdiCheckboxIntermediate,
 }
 export default function Prob1Cell({key, mouseStart, mouseHover, mouseEnd, isWall, isVisited, isVisiting, room_no}) {
-    var randomColor = 'b2c1c9'
-    //console.log(`#${randomColor}`)
-    let name = 'cell'
-    if(isWall)//||key.includes('0 ')||key.includes('19')||key.includes(' 0'))
+    var randomColor = 'b2c1c9';
+    let name = 'cell';
+    if(isWall)
     {
-        name = 'cell wall'
-        randomColor = '000413'
+        name = 'cell wall';
+        randomColor = '211112';
     }
     if(isVisited||isVisiting)
     {
-        name = 'cell'
-        randomColor = intToRGB(hashCode(`ok${room_no*5}o`))
-        randomColor+='d8'
-        //name+='-'+room_no
+        name = 'cell done';
+        randomColor = getRandomColor(room_no);
     }
-    return <div className={name}
-                style={{background: isWall?'transparent':`#${randomColor}`}}
+    return (
+        <IconButton className={''}
+                size='small'
+                dark
+                bordered
+                text={false}
                 onMouseDown={()=>mouseStart(key)}
                 onMouseEnter={()=>mouseHover(key)}
-                onMouseUp={()=>mouseEnd(key)
-                }
-            />
+                onMouseUp={()=>mouseEnd(key)}
+            >
+                <Icon path={icons[name]}
+                    size={1}
+                    color= {`#${randomColor}`}
+                    />
+        </IconButton>
+    );
 }

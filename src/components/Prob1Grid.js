@@ -1,8 +1,8 @@
 import React from 'react';
 import Cell from './Prob1Cell';
 export default function Prob1Grid({mouseStart, mouseHover, mouseEnd, walls, visited, visiting, rooms, room_ctr}){
-    const N = 20    // number of rows
-    const M = 20    // number of columns
+    const N = 12    // number of rows
+    const M = 12    // number of columns
     const grid = []
     for( let row = 0; row < N; row++)
     {

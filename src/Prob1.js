@@ -130,7 +130,7 @@ export default function Copy() {
   }
 
   return (
-    <div onMouseUp={()=>mouseEnd('')}>
+    <div onMouseUp={()=>mouseEnd('')} style={{display: 'flex', justifyContent: 'space-around'}}>
       <Grid 
       mouseStart={mouseStart}
       mouseHover={mouseHover}
@@ -141,18 +141,20 @@ export default function Copy() {
       room_ctr={room_ctr}
       rooms={rooms}
       />
-      <Button
-      type = 'source'
-      content = {`Room no: ${room_ctr}`}
-      buttonClick = {buttonClick}
-      disable = {disable_start}  
-      />
-      <Button
-        type = 'start'
-        content = 'Start'
+      <div className='action-buttons' style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+        <Button
+        type = 'source'
+        content = {`Room no: ${room_ctr}`}
         buttonClick = {buttonClick}
         disable = {disable_start}  
-      />
+        />
+        <Button
+          type = 'start'
+          content = 'Start'
+          buttonClick = {buttonClick}
+          disable = {disable_start}  
+        />
+      </div>
     </div>
   );
 }

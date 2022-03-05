@@ -146,7 +146,7 @@ export default function Copy() {
         type = 'source'
         content = {`Room no: ${room_ctr}`}
         buttonClick = {buttonClick}
-        disable = {disable_start}  
+        disable = {false}  
         />
         <Button
           type = 'start'

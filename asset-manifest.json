@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/GridVis/static/css/main.a3684e7d.chunk.css",
+    "main.js": "/GridVis/static/js/main.47a0ad94.chunk.js",
+    "main.js.map": "/GridVis/static/js/main.47a0ad94.chunk.js.map",
+    "runtime-main.js": "/GridVis/static/js/runtime-main.0657d69c.js",
+    "runtime-main.js.map": "/GridVis/static/js/runtime-main.0657d69c.js.map",
+    "static/css/2.97d68a7f.chunk.css": "/GridVis/static/css/2.97d68a7f.chunk.css",
+    "static/js/2.f3fe94fa.chunk.js": "/GridVis/static/js/2.f3fe94fa.chunk.js",
+    "static/js/2.f3fe94fa.chunk.js.map": "/GridVis/static/js/2.f3fe94fa.chunk.js.map",
+    "index.html": "/GridVis/index.html",
+    "static/css/2.97d68a7f.chunk.css.map": "/GridVis/static/css/2.97d68a7f.chunk.css.map",
+    "static/css/main.a3684e7d.chunk.css.map": "/GridVis/static/css/main.a3684e7d.chunk.css.map",
+    "static/js/2.f3fe94fa.chunk.js.LICENSE.txt": "/GridVis/static/js/2.f3fe94fa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0657d69c.js",
+    "static/css/2.97d68a7f.chunk.css",
+    "static/js/2.f3fe94fa.chunk.js",
+    "static/css/main.a3684e7d.chunk.css",
+    "static/js/main.47a0ad94.chunk.js"
+  ]
+}
